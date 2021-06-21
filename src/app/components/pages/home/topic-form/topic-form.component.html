@@ -1,0 +1,11 @@
+<form [formGroup]="topicForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="topic-title">Title</label>
+        <input type="text" id="topic-title" formControlName="title" placeholder="Title">
+    </div>
+    <div>
+        <label for="topic-msg">Message</label>
+        <textarea id="topic-msg" formControlName="message" placeholder="Message"></textarea>
+    </div>
+    <button [disabled]="topicForm.invalid">Add a new topic</button>
+</form>

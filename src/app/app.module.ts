@@ -9,6 +9,10 @@ import { LoginComponent } from './components/pages/login/login.component';
 import { RegisterComponent } from './components/pages/register/register.component';
 import { TopicComponent } from './components/pages/topic/topic.component';
 import { UpdateUserComponent } from './components/pages/update-user/update-user.component';
+import { TopicFormComponent } from './components/pages/home/topic-form/topic-form.component';
+import { TopicListComponent } from './components/pages/home/topic-list/topic-list.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TopicListItemComponent } from './components/pages/home/topic-list/topic-list-item/topic-list-item.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +22,15 @@ import { UpdateUserComponent } from './components/pages/update-user/update-user.
     LoginComponent,
     TopicComponent,
     RegisterComponent,
-    UpdateUserComponent
+    UpdateUserComponent,
+    TopicFormComponent,
+    TopicListComponent,
+    TopicListItemComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

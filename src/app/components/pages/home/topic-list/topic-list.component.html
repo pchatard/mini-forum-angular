@@ -1,0 +1,7 @@
+<div>
+    <input type="text" placeholder="Filtrer par titre ou par auteur" />
+
+    <div>
+        <app-topic-list-item *ngFor="let topic of topics" [topic]="topic"></app-topic-list-item>
+    </div>
+</div>
