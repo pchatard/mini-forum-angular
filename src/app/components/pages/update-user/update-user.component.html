@@ -1,1 +1,20 @@
-<p>update-user works!</p>
+<form [formGroup]="updateUserForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="username">Username</label>
+        <input type="text" id="username" formControlName="username" placeholder="Update username">
+    </div>
+    <div>
+        <label for="password">New password</label>
+        <input type="password" id="password" formControlName="password" placeholder="Update password">
+    </div>
+    <div>
+        <label for="password-confirm">Confirm new password</label>
+        <input type="password" id="password-confirm" formControlName="passwordConfirm"
+            placeholder="Confirm new password">
+    </div>
+    <div>
+        <label for="old-password">Old password</label>
+        <input type="password" id="old-password" formControlName="oldPassword" placeholder="Current password">
+    </div>
+    <button type="submit" [disabled]="updateUserForm.invalid">Update my account</button>
+</form>
