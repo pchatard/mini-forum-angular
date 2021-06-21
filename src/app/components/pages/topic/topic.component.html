@@ -1,1 +1,4 @@
-<p>topic works!</p>
+<h1>{{topic.title}}</h1>
+<h2>Posted by {{topic.author}} on {{topic.date}} at {{topic.date}}</h2>
+<app-message-list [messages]="topic.messages"></app-message-list>
+<app-message-form></app-message-form>
