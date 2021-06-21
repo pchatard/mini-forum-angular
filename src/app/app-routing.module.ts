@@ -7,7 +7,7 @@ import { TopicComponent } from './components/pages/topic/topic.component';
 import { UpdateUserComponent } from './components/pages/update-user/update-user.component';
 import { LoginGuard } from './guards/login.guard';
 
-export const routes: Routes = [
+const routes: Routes = [
   { path: '', canActivate: [LoginGuard], component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
