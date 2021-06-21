@@ -13,6 +13,9 @@ import { TopicFormComponent } from './components/pages/home/topic-form/topic-for
 import { TopicListComponent } from './components/pages/home/topic-list/topic-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TopicListItemComponent } from './components/pages/home/topic-list/topic-list-item/topic-list-item.component';
+import { MessageFormComponent } from './components/pages/topic/message-form/message-form.component';
+import { MessageListComponent } from './components/pages/topic/message-list/message-list.component';
+import { MessageListItemComponent } from './components/pages/topic/message-list/message-list-item/message-list-item.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { TopicListItemComponent } from './components/pages/home/topic-list/topic
     UpdateUserComponent,
     TopicFormComponent,
     TopicListComponent,
-    TopicListItemComponent
+    TopicListItemComponent,
+    MessageFormComponent,
+    MessageListComponent,
+    MessageListItemComponent
   ],
   imports: [
     BrowserModule,

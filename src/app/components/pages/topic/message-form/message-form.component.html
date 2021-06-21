@@ -1,0 +1,7 @@
+<form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="message-content">Message</label>
+        <textarea type="text" id="message-content" formControlName="messageContent" placeholder="Message"></textarea>
+    </div>
+    <button [disabled]="messageForm.invalid">Reply</button>
+</form>

@@ -15,11 +15,11 @@ export class TopicFormComponent implements OnInit {
     this.topicForm = this.formBuilder.group({
       title: ['', [Validators.required] /* Validators go here */],
       message: ['']
-    });
-  }
+    })
+  };
 
   onSubmit(): void {
     console.log(this.topicForm.value);
-  }
+  };
 
 }
