@@ -5,13 +5,14 @@ import { LoginComponent } from './components/pages/login/login.component';
 import { RegisterComponent } from './components/pages/register/register.component';
 import { TopicComponent } from './components/pages/topic/topic.component';
 import { UpdateUserComponent } from './components/pages/update-user/update-user.component';
+import { LoginGuard } from './guards/login.guard';
 
-const routes: Routes = [
-{ path: 'home', component: HomeComponent},
-{ path: 'login', component: LoginComponent},
-{ path: 'register', component: RegisterComponent},
-{ path: 'topic', component: TopicComponent},
-{ path: 'update-user', component: UpdateUserComponent}
+export const routes: Routes = [
+  { path: '', canActivate: [LoginGuard], component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'topic', canActivate: [LoginGuard], component: TopicComponent },
+  { path: 'update-user', canActivate: [LoginGuard], component: UpdateUserComponent }
 ];
 
 @NgModule({

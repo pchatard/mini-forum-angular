@@ -1,5 +1,3 @@
-<p>register works!</p>
-
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <div>
         <label for="username">Username</label>
@@ -11,7 +9,8 @@
     </div>
     <div>
         <label for="passwordConfirmed">Password</label>
-        <input type="password" id="passwordConfirmed" formControlName="passwordConfirmed" placeholder="Password confirmation">
+        <input type="password" id="passwordConfirmed" formControlName="passwordConfirmed"
+            placeholder="Password confirmation">
     </div>
     <button type="submit" [disabled]="registerForm.invalid">Login</button>
 
