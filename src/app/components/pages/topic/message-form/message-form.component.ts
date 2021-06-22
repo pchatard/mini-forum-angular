@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
+import { TopicsService } from 'src/app/services/topics.service';
 
 @Component({
   selector: 'app-message-form',
@@ -8,16 +10,22 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class MessageFormComponent implements OnInit {
   messageForm!: FormGroup;
-  constructor(private formBuilder: FormBuilder) { }
+  @Input() topic!: any;
+  constructor(private formBuilder: FormBuilder, private topicService: TopicsService, private auth: AuthService) { }
 
   ngOnInit(): void {
     this.messageForm = this.formBuilder.group({
-      messageContent: ['', [Validators.required] /* Validators go here */]
+      content: ['', [Validators.required] /* Validators go here */]
     })
   };
 
   onSubmit(): void {
-    console.log(this.messageForm.value);
-  };
+    const newMessage = this.messageForm.value;
+    newMessage.user = this.auth.user;
+    newMessage.topic = this.topic;
+    newMessage.date = Date.now();
+    console.log(newMessage);
+    this.topicService.createMessage(newMessage);
+    };
 
 }

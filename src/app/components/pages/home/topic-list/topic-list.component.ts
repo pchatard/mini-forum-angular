@@ -1,18 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { TopicsService } from 'src/app/services/topics.service';
 
 @Component({
   selector: 'app-topic-list',
   templateUrl: './topic-list.component.html',
   styleUrls: ['./topic-list.component.css']
 })
-export class TopicListComponent implements OnInit {
+export class TopicListComponent implements OnInit, OnDestroy {
 
-  topics: any[] = [{ title: 'A' }, { title: 'B' }, { title: 'C' }, { title: 'D' }];
+  topics: any;
+  topicsSubscription!: Subscription;
 
-  constructor() { }
+  constructor(private topicService: TopicsService) { }
 
   ngOnInit(): void {
-    // Get topics from api
+    this.topicsSubscription = this.topicService.topicsSubject
+    .subscribe((topics: any) => {
+      this.topics=topics;
+    });
+    this.topicService.getTopics();
+  }
+
+  ngOnDestroy(): void {
+    this.topicsSubscription?.unsubscribe();
   }
 
 }
