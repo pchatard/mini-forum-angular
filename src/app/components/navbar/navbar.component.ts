@@ -22,6 +22,7 @@ export class NavbarComponent implements OnInit {
         this.isUserConnected = false;
       }
     });
+    this.auth.initUser();
   }
 
   logout(): void {

@@ -18,6 +18,10 @@ export class AuthService {
     }
   }
 
+  initUser(): void {
+    this.userSubject.next(this.user);
+  }
+
   login(credentials: any, rememberMe: boolean): void {
     this.http.post(`${environment.apiUrl}login`, credentials).subscribe(user => {
       this.user = user;
