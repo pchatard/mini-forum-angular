@@ -10,9 +10,9 @@ export class UsersService {
 
   constructor(private http: HttpClient, private auth: AuthService) { }
 
-  register(newUser: any): void {
+  register(newUser: any, rememberMe: boolean): void {
     this.http.post(`${environment.apiUrl}api/user`, newUser).subscribe(user => {
-      this.auth.login({ username: newUser.username, password: newUser.password });
+      this.auth.login({ username: newUser.username, password: newUser.password }, rememberMe);
     }, error => {
       console.log(error);
     });

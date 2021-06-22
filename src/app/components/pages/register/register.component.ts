@@ -16,11 +16,13 @@ export class RegisterComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       username: ['', [Validators.required]],
       password: ['', [Validators.required]],
-      passwordConfirmed: ['', [Validators.required]]
+      passwordConfirmed: ['', [Validators.required]],
+      rememberMe: [false, [Validators.required]]
     })
   };
 
   onSubmit(): void {
-    this.userService.register(this.registerForm.value);
+    const { rememberMe, ...credentials } = this.registerForm.value;
+    this.userService.register(credentials, rememberMe);
   };
 };

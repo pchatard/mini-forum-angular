@@ -15,11 +15,13 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       username: ['', [Validators.required]],
-      password: ['', [Validators.required]]
+      password: ['', [Validators.required]],
+      rememberMe: [false, [Validators.required]]
     });
   };
 
   onSubmit(): void {
-    this.auth.login(this.loginForm.value);
+    const { rememberMe, ...credentials } = this.loginForm.value;
+    this.auth.login(credentials, rememberMe);
   };
 }

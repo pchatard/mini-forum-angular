@@ -17,10 +17,12 @@ export class AuthService {
     }
   }
 
-  login(credentials: any): void {
+  login(credentials: any, rememberMe: boolean): void {
     this.http.post(`${environment.apiUrl}login`, credentials).subscribe(user => {
       this.user = user;
-      localStorage.setItem('user', JSON.stringify(this.user));
+      if (rememberMe) {
+        localStorage.setItem('user', JSON.stringify(this.user));
+      }
       this.router.navigate(['']);
     }, error => {
       console.log(error);
