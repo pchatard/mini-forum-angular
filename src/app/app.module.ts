@@ -16,6 +16,7 @@ import { TopicListItemComponent } from './components/pages/home/topic-list/topic
 import { MessageFormComponent } from './components/pages/topic/message-form/message-form.component';
 import { MessageListComponent } from './components/pages/topic/message-list/message-list.component';
 import { MessageListItemComponent } from './components/pages/topic/message-list/message-list-item/message-list-item.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { MessageListItemComponent } from './components/pages/topic/message-list/
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
