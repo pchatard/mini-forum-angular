@@ -28,6 +28,6 @@ export class TopicListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.topicsSubscription?.unsubscribe();
-  }
+  };
 
 }
