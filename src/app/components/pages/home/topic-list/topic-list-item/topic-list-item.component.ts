@@ -12,9 +12,11 @@ export class TopicListItemComponent implements OnInit {
   @Input() topic!: any;
   showUpdateElements: boolean;
   updateTopicForm!: FormGroup;
+  showInformation: boolean;
 
   constructor(private formBuilder: FormBuilder, private topicService: TopicsService) {
     this.showUpdateElements = false;
+    this.showInformation = false;
   }
 
   ngOnInit() {
@@ -38,6 +40,14 @@ export class TopicListItemComponent implements OnInit {
 
   deleteTopic(): void {
     this.topicService.deleteTopic(this.topic.id);
+  };
+
+  showDetails(): void {
+    this.showInformation = true;
+  };
+
+  hideDetails(): void {
+    this.showInformation = false;
   }
 
 }

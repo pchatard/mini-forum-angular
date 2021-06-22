@@ -1,5 +1,7 @@
-<div>
-    <a [routerLink]="['topic', topic.id]" *ngIf="!showUpdateElements">{{topic.title}}</a>
+<div (mouseenter)="showDetails()" (mouseleave)="hideDetails()">
+    <a [routerLink]="['topic', topic.id]" *ngIf="!showUpdateElements">{{topic.title}} 
+        <span *ngIf="showInformation">{{topic.author.username}} at {{topic.date}}</span>
+</a>
     <form *ngIf="showUpdateElements" [formGroup]="updateTopicForm" (ngSubmit)="saveChanges()">
         <input type="text" placeholder="Title" formControlName="title" />
     </form>
