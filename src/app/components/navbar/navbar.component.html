@@ -1,9 +1,9 @@
 <nav>
     <ul>
-        <li><a routerLink="">Home</a></li>
-        <li><a routerLink="login">Login</a></li>
-        <li><a routerLink="register">Register</a></li>
-        <li><a routerLink="update-user">Update Profile</a></li>
+        <li *ngIf="isUserConnected"><a routerLink="">Home</a></li>
+        <li *ngIf="!isUserConnected"><a routerLink="login">Login</a></li>
+        <li *ngIf="!isUserConnected"><a routerLink="register">Register</a></li>
+        <li *ngIf="isUserConnected"><a routerLink="update-user">Update Profile</a></li>
     </ul>
-    <button (click)="logout()">Log out</button>
+    <button (click)="logout()" *ngIf="isUserConnected">Log out</button>
 </nav>
