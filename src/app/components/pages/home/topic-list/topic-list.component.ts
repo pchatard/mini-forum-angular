@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopicListComponent implements OnInit {
 
-  topics: any[] = [{ title: 'A' }, { title: 'B' }, { title: 'C' }, { title: 'D' }];
+  topics: any[] = [{ id: 1, title: 'A' }, { id: 2, title: 'B' }, { id: 3, title: 'C' }, { id: 4, title: 'D' }];
 
   constructor() { }
 

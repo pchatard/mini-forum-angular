@@ -1,5 +1,5 @@
 <div>
-    <span *ngIf="!showUpdateElements">{{topic.title}}</span>
+    <a [routerLink]="['topic', topic.id]" *ngIf="!showUpdateElements">{{topic.title}}</a>
     <form *ngIf="showUpdateElements" [formGroup]="updateTopicForm" (ngSubmit)="saveChanges()">
         <input type="text" placeholder="Title" formControlName="title" />
     </form>

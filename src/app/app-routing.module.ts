@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: '', canActivate: [LoginGuard], component: HomeComponent },
   { path: 'login', canActivate: [LogoutGuard], component: LoginComponent },
   { path: 'register', canActivate: [LogoutGuard], component: RegisterComponent },
-  { path: 'topic', canActivate: [LoginGuard], component: TopicComponent },
+  { path: 'topic/:id', canActivate: [LoginGuard], component: TopicComponent },
   { path: 'update-user', canActivate: [LoginGuard], component: UpdateUserComponent }
 ];
 
