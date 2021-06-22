@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
+import { TopicsService } from 'src/app/services/topics.service';
+import { TopicComponent } from '../../topic/topic.component';
 
 @Component({
   selector: 'app-topic-form',
@@ -9,17 +12,20 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class TopicFormComponent implements OnInit {
   topicForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private topicService: TopicsService, private auth: AuthService) { }
 
   ngOnInit(): void {
     this.topicForm = this.formBuilder.group({
       title: ['', [Validators.required] /* Validators go here */],
-      message: ['']
+      content: ['']
     })
   };
 
   onSubmit(): void {
-    console.log(this.topicForm.value);
+    const newTopic = this.topicForm.value;
+    newTopic.user= this.auth.user;
+    newTopic.date = Date.now();
+    this.topicService.createTopic(newTopic);
   };
 
 }

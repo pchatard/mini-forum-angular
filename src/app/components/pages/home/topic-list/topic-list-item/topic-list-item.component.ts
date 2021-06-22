@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TopicsService } from 'src/app/services/topics.service';
 
 @Component({
   selector: 'app-topic-list-item',
@@ -12,7 +13,7 @@ export class TopicListItemComponent implements OnInit {
   showUpdateElements: boolean;
   updateTopicForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private topicService: TopicsService) {
     this.showUpdateElements = false;
   }
 
@@ -23,22 +24,20 @@ export class TopicListItemComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.updateTopicForm.value);
+    this.topicService.changeTopic(this.updateTopicForm.value, this.topic.id);
     this.showUpdateElements = false;
   }
 
   updateTopic(): void {
     this.showUpdateElements = true;
-    console.log('Update topic');
   }
 
   saveChanges(): void {
     this.onSubmit();
-    console.log('Save changes');
   }
 
   deleteTopic(): void {
-    console.log('Delete topic');
+    this.topicService.deleteTopic(this.topic.id);
   }
 
 }
