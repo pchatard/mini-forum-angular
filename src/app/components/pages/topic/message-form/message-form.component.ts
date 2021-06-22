@@ -24,8 +24,8 @@ export class MessageFormComponent implements OnInit {
     newMessage.user = this.auth.user;
     newMessage.topic = this.topic;
     newMessage.date = Date.now();
-    console.log(newMessage);
     this.topicService.createMessage(newMessage);
-    };
+    this.messageForm.reset();
+  };
 
 }

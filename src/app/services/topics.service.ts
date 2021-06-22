@@ -33,6 +33,13 @@ export class TopicsService {
     });
   };
 
+  filterTopics(query: string) {
+    const filteredList = this.topics.filter((topic: any) => {
+      return topic.title.toLowerCase().includes(query.toLowerCase()) || topic.author.username.toLowerCase().includes(query.toLowerCase());
+    });
+    this.topicsSubject.next(filteredList);
+  }
+
   getTopic(id: number): void {
     this.http.get(`${environment.apiUrl}api/topic/${id}`).subscribe(APItopic => {
       this.topic = APItopic;

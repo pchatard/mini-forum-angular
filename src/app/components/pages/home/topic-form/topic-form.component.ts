@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { TopicsService } from 'src/app/services/topics.service';
-import { TopicComponent } from '../../topic/topic.component';
 
 @Component({
   selector: 'app-topic-form',
@@ -23,9 +22,10 @@ export class TopicFormComponent implements OnInit {
 
   onSubmit(): void {
     const newTopic = this.topicForm.value;
-    newTopic.user= this.auth.user;
+    newTopic.user = this.auth.user;
     newTopic.date = Date.now();
     this.topicService.createTopic(newTopic);
+    this.topicForm.reset();
   };
 
 }

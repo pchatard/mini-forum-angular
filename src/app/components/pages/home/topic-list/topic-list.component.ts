@@ -22,6 +22,10 @@ export class TopicListComponent implements OnInit, OnDestroy {
     this.topicService.getTopics();
   }
 
+  filterList(event: any): void {
+    this.topicService.filterTopics(event.target.value);
+  }
+
   ngOnDestroy(): void {
     this.topicsSubscription?.unsubscribe();
   }
