@@ -11,7 +11,7 @@
   <mat-form-field appearance="outline"
     [class]="{'mat-form-field-invalid': registerForm.controls.password.dirty && registerForm.controls.password.invalid}">
     <mat-label>Password</mat-label>
-    <input matInput placeholder="Username" formControlName="password">
+    <input matInput type="password" placeholder="Username" formControlName="password">
     <mat-error *ngIf="registerForm.controls.password.dirty && registerForm.controls.password.invalid">Password error
       message</mat-error>
   </mat-form-field>
@@ -19,7 +19,7 @@
   <mat-form-field appearance="outline"
     [class]="{'mat-form-field-invalid': registerForm.controls.passwordConfirmed.dirty && registerForm.controls.passwordConfirmed.invalid}">
     <mat-label>Confirm password</mat-label>
-    <input matInput placeholder="Confirm password" formControlName="passwordConfirmed">
+    <input matInput type="password" placeholder="Confirm password" formControlName="passwordConfirmed">
     <mat-error *ngIf="registerForm.controls.passwordConfirmed.dirty && registerForm.controls.passwordConfirmed.invalid">
       Password Confirm error message</mat-error>
   </mat-form-field>
