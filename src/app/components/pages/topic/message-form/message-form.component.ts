@@ -15,9 +15,22 @@ export class MessageFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.messageForm = this.formBuilder.group({
-      content: ['', [Validators.required] /* Validators go here */]
+      content: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(1000)]]
     })
   };
+
+  getContentErrors(): string | void {
+    if (this.messageForm.controls.content.hasError('required')) {
+      return 'This field is required';
+    }
+    if (this.messageForm.controls.content.hasError('maxlength')) {
+      return 'You\'ve exceeded the limit of character. (at most 1000 characters)'
+    }
+
+    if (this.messageForm.controls.content.hasError('minlength')) {
+      return 'There is not enough characters. (at least 5 characters)'
+    }
+  }
 
   onSubmit(): void {
     const newMessage = this.messageForm.value;

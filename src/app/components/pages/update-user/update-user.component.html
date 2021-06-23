@@ -2,19 +2,30 @@
     <div>
         <label for="username">Username</label>
         <input type="text" id="username" formControlName="username" placeholder="Update username">
+        <div *ngIf="updateUserForm.dirty && updateUserForm.controls.username.invalid" style="color: red;">
+            {{getUsernameErrors()}}
+        </div>
     </div>
     <div>
         <label for="password">New password</label>
         <input type="password" id="password" formControlName="password" placeholder="Update password">
+        <div *ngIf="updateUserForm.dirty && updateUserForm.controls.password.invalid" style="color: red;">
+            {{getPasswordErrors()}}
+        </div>
     </div>
     <div>
         <label for="password-confirm">Confirm new password</label>
-        <input type="password" id="password-confirm" formControlName="passwordConfirm"
-            placeholder="Confirm new password">
+        <input type="password" id="password-confirm" formControlName="passwordConfirm" placeholder="Confirm new password">
+        <div *ngIf="getConfirmPasswordMismatch()" style="color: red;">
+            {{getConfirmPasswordMismatch()}}
+        </div>  
     </div>
     <div>
         <label for="old-password">Old password</label>
         <input type="password" id="old-password" formControlName="oldPassword" placeholder="Current password">
+        <div *ngIf="updateUserForm.dirty && updateUserForm.controls.oldPassword.invalid" style="color: red;">
+            {{getOldPasswordErrors()}}
+        </div>
     </div>
     <button type="submit" [disabled]="updateUserForm.invalid">Update my account</button>
 </form>

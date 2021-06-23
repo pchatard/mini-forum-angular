@@ -24,6 +24,19 @@ export class TopicComponent implements OnInit, OnDestroy {
     this.topicService.getTopic(topicId);
   };
 
+  getTopicErrors(): string | void {
+    if (this.topic.controls.username.hasError('required')) {
+      return 'This field is required';
+    }
+    if (this.topic.controls.username.hasError('maxlength')) {
+      return 'You\'ve exceeded the limit of character. (at most 50 characters)'
+    }
+
+    if (this.topic.controls.username.hasError('minlength')) {
+      return 'There is not enough characters. (at least 3 characters)'
+    }
+  }
+
   ngOnDestroy(): void {
     this.topicSubscription?.unsubscribe();
   }

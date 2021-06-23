@@ -2,15 +2,23 @@
     <div>
         <label for="username">Username</label>
         <input type="text" id="username" formControlName="username" placeholder="Username">
+        <div *ngIf="registerForm.dirty && registerForm.controls.username.invalid" style="color: red;">
+            {{getUsernameErrors()}}
+        </div>
     </div>
     <div>
         <label for="password">Password</label>
         <input type="password" id="password" formControlName="password" placeholder="Password">
+        <div *ngIf="registerForm.dirty && registerForm.controls.password.invalid" style="color: red;">
+            {{getPasswordErrors()}}
+        </div>
     </div>
     <div>
         <label for="passwordConfirmed">Password</label>
-        <input type="password" id="passwordConfirmed" formControlName="passwordConfirmed"
-            placeholder="Password confirmation">
+        <input type="password" id="passwordConfirmed" formControlName="passwordConfirmed" placeholder="Password confirmation">
+        <div *ngIf="getConfirmedPasswordMismatch()" style="color: red;">
+            {{getConfirmedPasswordMismatch()}}
+        </div>
     </div>
     <div>
         <input type="checkbox" id="remember-me" formControlName="rememberMe">

@@ -2,6 +2,9 @@
     <a [routerLink]="['topic', topic.id]" *ngIf="!showUpdateElements">{{topic.title}}</a>
     <form *ngIf="showUpdateElements" [formGroup]="updateTopicForm" (ngSubmit)="saveChanges()">
         <input type="text" placeholder="Title" formControlName="title" />
+        <div *ngIf="updateTopicForm.dirty && updateTopicForm.controls.title.invalid" style="color: red;">
+            {{getTitleErrors()}}
+        </div>
     </form>
     <div>
         <button *ngIf="!showUpdateElements" (click)="updateTopic()">Update</button>
