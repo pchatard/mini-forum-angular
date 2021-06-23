@@ -1,40 +1,37 @@
 <div class="register-container">
 
-  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
-    <h1>Register</h1>
+        <h1>Register</h1>
 
-    <mat-form-field appearance="outline"
-      [class]="{'mat-form-field-invalid': registerForm.controls.username.dirty && registerForm.controls.username.invalid}">
-      <mat-label>Username</mat-label>
-      <input matInput placeholder="Username" formControlName="username">
-      <mat-error *ngIf="registerForm.controls.username.dirty && registerForm.controls.username.invalid">
-        {{getUsernameErrors()}}
-      </mat-error>
-    </mat-form-field>
+        <mat-form-field appearance="outline" [class]="{'mat-form-field-invalid': registerForm.controls.username.dirty && registerForm.controls.username.invalid}">
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="Username" formControlName="username">
+            <mat-error *ngIf="registerForm.controls.username.dirty && registerForm.controls.username.invalid">
+                {{getUsernameErrors()}}
+            </mat-error>
+        </mat-form-field>
 
-    <mat-form-field appearance="outline"
-      [class]="{'mat-form-field-invalid': registerForm.controls.password.dirty && registerForm.controls.password.invalid}">
-      <mat-label>Password</mat-label>
-      <input matInput type="password" placeholder="Password" formControlName="password">
-      <mat-error *ngIf="registerForm.controls.password.dirty && registerForm.controls.password.invalid">
-        {{getPasswordErrors()}}
-      </mat-error>
-    </mat-form-field>
+        <mat-form-field appearance="outline" [class]="{'mat-form-field-invalid': registerForm.controls.password.dirty && registerForm.controls.password.invalid}">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" placeholder="Password" formControlName="password">
+            <mat-error *ngIf="registerForm.controls.password.dirty && registerForm.controls.password.invalid">
+                {{getPasswordErrors()}}
+            </mat-error>
+        </mat-form-field>
 
-    <mat-form-field appearance="outline"
-      [class]="{'mat-form-field-invalid': registerForm.controls.passwordConfirmed.dirty && registerForm.controls.passwordConfirmed.invalid}">
-      <mat-label>Confirm password</mat-label>
-      <input matInput type="password" placeholder="Confirm password" formControlName="passwordConfirmed">
-      <mat-error *ngIf="getConfirmedPasswordMismatch()">
-        {{getConfirmedPasswordMismatch()}}
-      </mat-error>
-    </mat-form-field>
+        <mat-form-field appearance="outline" [class]="{'mat-form-field-invalid': registerForm.controls.passwordConfirmed.dirty && registerForm.controls.passwordConfirmed.invalid}">
+            <mat-label>Confirm password</mat-label>
+            <input matInput type="password" placeholder="Confirm password" formControlName="passwordConfirmed">
+            <mat-error *ngIf="getConfirmedPasswordMismatch()">
+                {{getConfirmedPasswordMismatch()}}
+            </mat-error>
+        </mat-form-field>
 
-    <mat-slide-toggle formControlName="rememberMe">Remember me</mat-slide-toggle>
+        <mat-slide-toggle formControlName="rememberMe">Remember me</mat-slide-toggle>
 
-    <button mat-raised-button color="primary" type="submit" [disabled]="registerForm.invalid">Register</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="registerForm.invalid" (click)="openSnackBar()">Register</button>
 
-  </form>
+    </form>
 
 </div>

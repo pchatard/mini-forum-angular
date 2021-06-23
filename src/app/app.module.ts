@@ -27,6 +27,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './components/pages/home/topic-list/topic-list-item/dialog/dialog.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DialogComponentAccount } from './components/pages/update-user/dialog/dialog.component';
 
 @NgModule({
@@ -59,7 +60,8 @@ import { DialogComponentAccount } from './components/pages/update-user/dialog/di
     MatButtonModule,
     MatCardModule,
     MatListModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
