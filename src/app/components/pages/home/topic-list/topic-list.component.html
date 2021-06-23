@@ -2,7 +2,7 @@
 
   <mat-form-field appearance="outline">
     <mat-label>Filtrer par titre ou par auteur</mat-label>
-    <input matInput placeholder="Filtrer par titre ou par auteur">
+    <input matInput placeholder="Filtrer par titre ou par auteur" (input)="filterList($event)">
   </mat-form-field>
 
   <div>

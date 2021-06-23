@@ -21,7 +21,7 @@ export class TopicListItemComponent implements OnInit {
 
   ngOnInit() {
     this.updateTopicForm = this.formBuilder.group({
-      title: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(100)]]
+      title: [this.topic.title, [Validators.required, Validators.minLength(5), Validators.maxLength(100)]]
     });
   }
 

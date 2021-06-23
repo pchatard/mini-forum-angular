@@ -16,10 +16,10 @@ export class UpdateUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.updateUserForm = this.formBuilder.group({
-      username: ['', [Validators.required]],
+      username: [this.auth.user.username, [Validators.required]],
       password: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]],
       passwordConfirm: ['', [Validators.required]],
-      oldPassword : ['', [Validators.required]]
+      oldPassword: ['', [Validators.required]]
     })
   }
 
@@ -46,11 +46,10 @@ export class UpdateUserComponent implements OnInit {
     }
   }
 
-  getConfirmPasswordMismatch(): string | void{
+  getConfirmPasswordMismatch(): string | void {
     const password = this.updateUserForm.controls.password.value;
     const confirmPassword = this.updateUserForm.controls.passwordConfirm.value;
-    if (password!==confirmPassword)
-    {
+    if (password !== confirmPassword) {
       return 'The passwords must match each other.';
     }
   }
