@@ -1,0 +1,30 @@
+.topicListItemStyle {
+    background-color: #F7FCFF;
+    padding: 10px;
+    margin: 20px;
+    border: solid 1px;
+    border-color: #00477C;
+    display: flex;
+    height: 100px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+}
+
+.topicListItemStyle a {
+    font-weight: bold;
+    color: #053e69;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.topicListItemStyle span {
+    color: #053e69;
+    margin-left: 10px;
+    margin-right: 15px;
+}
+
+.topicListItemStyle button {
+    color: #053e69;
+    margin-left: 5px;
+}

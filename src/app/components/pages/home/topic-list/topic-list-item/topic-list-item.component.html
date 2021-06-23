@@ -1,11 +1,10 @@
-<div (mouseenter)="showDetails()" (mouseleave)="hideDetails()">
-    <a [routerLink]="['topic', topic.id]" *ngIf="!showUpdateElements">{{topic.title}} 
-        <span *ngIf="showInformation">{{topic.author.username}} at {{topic.date}}</span>
-</a>
+<div class="topicListItemStyle" (mouseenter)="showDetails()" (mouseleave)="hideDetails()">
+    <a [routerLink]="['topic', topic.id]" *ngIf="!showUpdateElements">{{topic.title}}</a>
+    <span *ngIf="showInformation">  By {{topic.author.username}} at {{topic.date}}</span>
     <form *ngIf="showUpdateElements" [formGroup]="updateTopicForm" (ngSubmit)="saveChanges()">
         <input type="text" placeholder="Title" formControlName="title" />
     </form>
-    <div>
+    <div *ngIf="showInformation">
         <button *ngIf="!showUpdateElements" (click)="updateTopic()">Update</button>
         <button *ngIf="showUpdateElements" (click)="saveChanges()">Save changes</button>
         <button *ngIf="!showUpdateElements" (click)="deleteTopic()">Delete</button>
