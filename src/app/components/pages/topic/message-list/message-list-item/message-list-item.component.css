@@ -1,11 +1,11 @@
-.messageStyle {
-    background-color: #F7FCFF;
-    padding: 10px;
-    margin: 20px;
-    border: solid 1px;
-    border-color: #00477C;
+mat-card {
+  padding: 20px;
+  margin: 0px 10px;
+  box-shadow: 0 0 10px 0 rgba(5, 62, 105, 0.2) !important;
+  width: 100%;
 }
 
-.messageStyle h3 {
-    color: #00477C;
+h3 {
+  font-size: 16px;
+  color: #00477C;
 }

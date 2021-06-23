@@ -1,25 +1,29 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+<div class="login-container">
 
-  <mat-form-field appearance="outline"
-    [class]="{'mat-form-field-invalid': loginForm.controls.username.dirty && loginForm.controls.username.invalid}">
-    <mat-label>Username</mat-label>
-    <input matInput placeholder="Username" formControlName="username">
-    <mat-error *ngIf="loginForm.controls.username.dirty && loginForm.controls.username.invalid">
-      {{getUsernameErrors()}}
-    </mat-error>
-  </mat-form-field>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <h1>Login</h1>
 
-  <mat-form-field appearance="outline"
-    [class]="{'mat-form-field-invalid': loginForm.controls.password.dirty && loginForm.controls.password.invalid}">
-    <mat-label>Password</mat-label>
-    <input type="password" matInput placeholder="Password" formControlName="password">
-    <mat-error *ngIf="loginForm.controls.password.dirty && loginForm.controls.password.invalid">
-      {{getPasswordErrors()}}
-    </mat-error>
-  </mat-form-field>
+    <mat-form-field appearance="outline"
+      [class]="{'mat-form-field-invalid': loginForm.controls.username.dirty && loginForm.controls.username.invalid}">
+      <mat-label>Username</mat-label>
+      <input matInput placeholder="Username" formControlName="username">
+      <mat-error *ngIf="loginForm.controls.username.dirty && loginForm.controls.username.invalid">
+        {{getUsernameErrors()}}
+      </mat-error>
+    </mat-form-field>
 
-  <mat-slide-toggle formControlName="rememberMe">Remember me</mat-slide-toggle>
+    <mat-form-field appearance="outline"
+      [class]="{'mat-form-field-invalid': loginForm.controls.password.dirty && loginForm.controls.password.invalid}">
+      <mat-label>Password</mat-label>
+      <input type="password" matInput placeholder="Password" formControlName="password">
+      <mat-error *ngIf="loginForm.controls.password.dirty && loginForm.controls.password.invalid">
+        {{getPasswordErrors()}}
+      </mat-error>
+    </mat-form-field>
 
-  <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Login</button>
+    <mat-slide-toggle color="primary" formControlName="rememberMe">Remember me</mat-slide-toggle>
 
-</form>
+    <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Login</button>
+
+  </form>
+</div>

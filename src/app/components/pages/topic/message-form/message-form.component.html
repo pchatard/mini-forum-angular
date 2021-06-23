@@ -3,7 +3,7 @@
   <mat-form-field appearance="outline"
     [class]="{'mat-form-field-invalid': messageForm.controls.content.dirty && messageForm.controls.content.invalid}">
     <mat-label>Message</mat-label>
-    <textarea matInput rows="8" cols="50" placeholder="Title" formControlName="content"></textarea>
+    <textarea matInput rows="3" cols="50" placeholder="Title" formControlName="content"></textarea>
     <mat-error *ngIf="messageForm.controls.content.dirty && messageForm.controls.content.invalid">
       {{getContentErrors()}}
     </mat-error>

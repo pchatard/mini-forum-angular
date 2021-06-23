@@ -1,43 +1,49 @@
-<form [formGroup]="updateUserForm" (ngSubmit)="onSubmit()">
+<div class="update-container">
 
-  <mat-form-field appearance="outline"
-    [class]="{'mat-form-field-invalid': updateUserForm.controls.username.dirty && updateUserForm.controls.username.invalid}">
-    <mat-label>Username</mat-label>
-    <input matInput placeholder="Username" formControlName="username">
-    <mat-error *ngIf="updateUserForm.controls.username.dirty && updateUserForm.controls.username.invalid">
-      {{getUsernameErrors()}}
-    </mat-error>
-  </mat-form-field>
+  <form [formGroup]="updateUserForm" (ngSubmit)="onSubmit()">
 
-  <mat-form-field appearance="outline"
-    [class]="{'mat-form-field-invalid': updateUserForm.controls.password.dirty && updateUserForm.controls.password.invalid}">
-    <mat-label>New password</mat-label>
-    <input matInput type="password" placeholder="Username" formControlName="password">
-    <mat-error *ngIf="updateUserForm.controls.password.dirty && updateUserForm.controls.password.invalid">
-      {{getPasswordErrors()}}
-    </mat-error>
-  </mat-form-field>
+    <h1>Update your password</h1>
 
-  <mat-form-field appearance="outline"
-    [class]="{'mat-form-field-invalid': updateUserForm.controls.passwordConfirm.dirty && updateUserForm.controls.passwordConfirm.invalid}">
-    <mat-label>Confirm new password</mat-label>
-    <input matInput type="password" placeholder="Username" formControlName="passwordConfirm">
-    <mat-error *ngIf="getConfirmPasswordMismatch()">
-      {{getConfirmPasswordMismatch()}}
-    </mat-error>
-  </mat-form-field>
+    <mat-form-field appearance="outline"
+      [class]="{'mat-form-field-invalid': updateUserForm.controls.username.dirty && updateUserForm.controls.username.invalid}">
+      <mat-label>Username</mat-label>
+      <input matInput placeholder="Username" formControlName="username">
+      <mat-error *ngIf="updateUserForm.controls.username.dirty && updateUserForm.controls.username.invalid">
+        {{getUsernameErrors()}}
+      </mat-error>
+    </mat-form-field>
 
-  <mat-form-field appearance="outline"
-    [class]="{'mat-form-field-invalid': updateUserForm.controls.oldPassword.dirty && updateUserForm.controls.oldPassword.invalid}">
-    <mat-label>Old password</mat-label>
-    <input matInput type="password" placeholder="Username" formControlName="oldPassword">
-    <mat-error *ngIf="updateUserForm.controls.oldPassword.dirty && updateUserForm.controls.oldPassword.invalid">Old
-      {{getOldPasswordErrors()}}
-    </mat-error>
-  </mat-form-field>
+    <mat-form-field appearance="outline"
+      [class]="{'mat-form-field-invalid': updateUserForm.controls.password.dirty && updateUserForm.controls.password.invalid}">
+      <mat-label>New password</mat-label>
+      <input matInput type="password" placeholder="Username" formControlName="password">
+      <mat-error *ngIf="updateUserForm.controls.password.dirty && updateUserForm.controls.password.invalid">
+        {{getPasswordErrors()}}
+      </mat-error>
+    </mat-form-field>
 
-  <button mat-raised-button color="primary" type="submit" [disabled]="updateUserForm.invalid">Update my account</button>
+    <mat-form-field appearance="outline"
+      [class]="{'mat-form-field-invalid': updateUserForm.controls.passwordConfirm.dirty && updateUserForm.controls.passwordConfirm.invalid}">
+      <mat-label>Confirm new password</mat-label>
+      <input matInput type="password" placeholder="Username" formControlName="passwordConfirm">
+      <mat-error *ngIf="getConfirmPasswordMismatch()">
+        {{getConfirmPasswordMismatch()}}
+      </mat-error>
+    </mat-form-field>
 
-</form>
+    <mat-form-field appearance="outline"
+      [class]="{'mat-form-field-invalid': updateUserForm.controls.oldPassword.dirty && updateUserForm.controls.oldPassword.invalid}">
+      <mat-label>Old password</mat-label>
+      <input matInput type="password" placeholder="Username" formControlName="oldPassword">
+      <mat-error *ngIf="updateUserForm.controls.oldPassword.dirty && updateUserForm.controls.oldPassword.invalid">Old
+        {{getOldPasswordErrors()}}
+      </mat-error>
+    </mat-form-field>
 
-<button mat-raised-button color="warn" (click)="deleteAccount()">Delete my account</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="updateUserForm.invalid">Update my
+      account</button>
+
+  </form>
+
+  <button mat-raised-button color="warn" (click)="deleteAccount()">Delete my account</button>
+</div>

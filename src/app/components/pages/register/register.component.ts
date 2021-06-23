@@ -51,11 +51,10 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  getConfirmedPasswordMismatch(): string | void{
+  getConfirmedPasswordMismatch(): string | void {
     const password = this.registerForm.controls.password.value;
     const confirmPassword = this.registerForm.controls.passwordConfirmed.value;
-    if (password!==confirmPassword)
-    {
+    if (password !== confirmPassword) {
       return 'The passwords must match each other.';
     }
   }

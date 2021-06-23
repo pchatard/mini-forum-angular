@@ -1,9 +1,10 @@
-<div class="topicListItemStyle" (mouseenter)="showDetails()" (mouseleave)="hideDetails()">
+<mat-card (mouseenter)="showDetails()" (mouseleave)="hideDetails()">
   <a [routerLink]="['topic', topic.id]" *ngIf="!showUpdateElements">{{topic.title}}
     <span *ngIf="showInformation">{{topic.author.username}} at {{ topic.date | date }} 
       
           </span>
   </a>
+
   <form *ngIf="showUpdateElements" [formGroup]="updateTopicForm" (ngSubmit)="saveChanges()">
     <mat-form-field appearance="outline"
       [class]="{'mat-form-field-invalid': updateTopicForm.controls.title.dirty && updateTopicForm.controls.title.invalid}">
@@ -13,10 +14,12 @@
         {{getTitleErrors()}}
       </mat-error>
     </mat-form-field>
+    <button mat-raised-button color="accent" *ngIf="showUpdateElements" (click)="saveChanges()">Save</button>
   </form>
-  <div *ngIf="showInformation">
+
+  <div>
     <button mat-raised-button color="primary" *ngIf="!showUpdateElements" (click)="updateTopic()">Update</button>
-    <button mat-raised-button color="accent" *ngIf="showUpdateElements" (click)="saveChanges()">Save changes</button>
     <button mat-raised-button color="warn" *ngIf="!showUpdateElements" (click)="deleteTopic()">Delete</button>
   </div>
-</div>
+
+</mat-card>

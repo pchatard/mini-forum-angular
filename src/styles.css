@@ -2,3 +2,27 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.login-container form, .register-container form {
+  margin: 0 auto;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  color:rgb(5, 62, 105);
+}
+
+form > mat-form-field {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+form button {
+  margin-top: 30px !important;
+  padding: 6px 70px !important;
+  font-size: 16px !important;
+}

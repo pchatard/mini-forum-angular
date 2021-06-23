@@ -1,0 +1,13 @@
+.register-container {
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+mat-slide-toggle {
+  align-self: flex-start;
+}

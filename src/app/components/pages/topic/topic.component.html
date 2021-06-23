@@ -1,6 +1,6 @@
-<div class="topicStyle">
-    <h1>{{topic.title}}</h1>
-    <h2>Posted by {{topic.author.username}} on {{topic.date | date:'shortDate'}}  at {{topic.date | date:'shortTime'}}</h2>
-    <app-message-list [messages]="topic.messages"></app-message-list>
-    <app-message-form [topic]="topic"></app-message-form>
+<div class="topic-container">
+  <h1>{{topic.title}}</h1>
+  <h2>Posted by {{topic.author.username}} on {{topic.date | date:'shortDate'}} at {{topic.date | date:'shortTime'}}</h2>
+  <app-message-list [messages]="topic.messages"></app-message-list>
+  <app-message-form [topic]="topic"></app-message-form>
 </div>

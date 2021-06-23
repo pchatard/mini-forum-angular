@@ -2,12 +2,13 @@ nav  {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 60px;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-} 
+}
 
 nav ul li {
     margin: 0 1rem;
