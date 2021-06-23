@@ -1,19 +1,46 @@
-nav  {
+mat-nav-list {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 60px;
+    border-bottom: 1px solid #053e69;
 }
 
-nav ul {
+mat-nav-list ul {
     list-style: none;
     display: flex;
 }
 
-nav ul li {
-    margin: 0 1rem;
+mat-nav-list ul li {
+    display: flex;
+    padding-inline-end: 50px;
+}
+
+mat-nav-list ul>li+li {
+    margin-left: 5px;
+    padding-left: 50px;
+    border-left: 1px solid #053e69;
+}
+
+mat-nav-list ul li a {
+    text-decoration: none;
+    color: #053e69;
+    font-size: 1.3rem;
+    background: none;
+}
+
+mat-nav-list ul li a:hover {
+    text-decoration: underline;
+}
+
+mat-nav-list ul li a.active-link {
+    text-decoration: underline;
 }
 
 nav button {
     margin-left: auto;
+}
+mat-nav-list button {
+    position: absolute;
+    right: 5%;
 }

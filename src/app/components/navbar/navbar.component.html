@@ -1,9 +1,10 @@
-<nav>
-  <ul>
-    <li *ngIf="isUserConnected"><a routerLink="">Home</a></li>
-    <li *ngIf="!isUserConnected"><a routerLink="login">Login</a></li>
-    <li *ngIf="!isUserConnected"><a routerLink="register">Register</a></li>
-    <li *ngIf="isUserConnected"><a routerLink="update-user">Update Profile</a></li>
-  </ul>
-  <button mat-stroked-button (click)="logout()" *ngIf="isUserConnected" color="warn">Log out</button>
-</nav>
+<mat-nav-list>
+    <ul>
+        <li *ngIf="isUserConnected"><a mat-list-item routerLink="" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+          true}">Home</a></li>
+        <li *ngIf="!isUserConnected"><a mat-list-item routerLink="login" routerLinkActive="active-link">Login</a></li>
+        <li *ngIf="!isUserConnected"><a mat-list-item routerLink="register" routerLinkActive="active-link">Register</a></li>
+        <li *ngIf="isUserConnected"><a mat-list-item routerLink="update-user" routerLinkActive="active-link">Update Profile</a></li>
+    </ul>
+    <button mat-stroked-button (click)="logout()" *ngIf="isUserConnected" color="warn">Log out</button>
+</mat-nav-list>
