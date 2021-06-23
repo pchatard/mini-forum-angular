@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -10,7 +11,8 @@ import { UsersService } from 'src/app/services/users.service';
 export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private userService: UsersService) { }
+
+  constructor(private formBuilder: FormBuilder, private userService: UsersService, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
@@ -62,7 +64,11 @@ export class RegisterComponent implements OnInit {
   onSubmit(): void {
     const { rememberMe, ...credentials } = this.registerForm.value;
     this.userService.register(credentials, rememberMe);
+  }
 
+  openSnackBar() {
+    let message = 'Your account has been successfully created!';
+    this._snackBar.open(message, 'Close', { duration: 2000, panelClass: ['snackbar']});
   }
 };
 

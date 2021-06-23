@@ -40,7 +40,13 @@ mat-nav-list ul li a.active-link {
 nav button {
     margin-left: auto;
 }
+
 mat-nav-list button {
     position: absolute;
     right: 5%;
+}
+
+::ng-deep .snackbar {
+    background: #053e69;
+    color: white;
 }
