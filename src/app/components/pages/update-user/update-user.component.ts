@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from 'src/app/services/auth.service';
 import { UsersService } from 'src/app/services/users.service';
+import { DialogComponentAccount } from './dialog/dialog.component';
 
 @Component({
   selector: 'app-update-user',
@@ -12,7 +14,7 @@ export class UpdateUserComponent implements OnInit {
 
   updateUserForm!: FormGroup;
 
-  constructor(private auth: AuthService, private formBuilder: FormBuilder, private userService: UsersService) { }
+  constructor(private auth: AuthService, private formBuilder: FormBuilder, private userService: UsersService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.updateUserForm = this.formBuilder.group({
@@ -60,14 +62,13 @@ export class UpdateUserComponent implements OnInit {
     }
   }
 
-
   onSubmit(): void {
     this.userService.modifyUser({ ...this.updateUserForm.value, id: this.auth.user.id });
     this.buildForm();
   }
 
-  deleteAccount(): void {
-    this.userService.deleteUser(this.auth.user.id);
+  openDialog() {
+    this.dialog.open(DialogComponentAccount, { data: { id: this.auth.user.id } });
   }
 
   buildForm(): void {

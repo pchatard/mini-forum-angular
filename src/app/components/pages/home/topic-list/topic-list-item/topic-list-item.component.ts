@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { TopicsService } from 'src/app/services/topics.service';
+import { DialogComponent } from './dialog/dialog.component';
 
 @Component({
   selector: 'app-topic-list-item',
@@ -14,7 +16,7 @@ export class TopicListItemComponent implements OnInit {
   updateTopicForm!: FormGroup;
   showInformation: boolean;
 
-  constructor(private formBuilder: FormBuilder, private topicService: TopicsService) {
+  constructor(private formBuilder: FormBuilder, private topicService: TopicsService, private dialog: MatDialog) {
     this.showUpdateElements = false;
     this.showInformation = false;
   }
@@ -51,9 +53,9 @@ export class TopicListItemComponent implements OnInit {
     this.onSubmit();
   }
 
-  deleteTopic(): void {
-    this.topicService.deleteTopic(this.topic.id);
-  };
+  openDialog() {
+    this.dialog.open(DialogComponent, { data: { id: this.topic.id } });
+  }
 
   showDetails(): void {
     this.showInformation = true;

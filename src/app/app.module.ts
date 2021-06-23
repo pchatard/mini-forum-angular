@@ -25,6 +25,9 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogComponent } from './components/pages/home/topic-list/topic-list-item/dialog/dialog.component';
+import { DialogComponentAccount } from './components/pages/update-user/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,9 @@ import { MatListModule } from '@angular/material/list';
     TopicListItemComponent,
     MessageFormComponent,
     MessageListComponent,
-    MessageListItemComponent
+    MessageListItemComponent,
+    DialogComponent,
+    DialogComponentAccount
   ],
   imports: [
     BrowserModule,
@@ -53,7 +58,8 @@ import { MatListModule } from '@angular/material/list';
     MatSlideToggleModule,
     MatButtonModule,
     MatCardModule,
-    MatListModule
+    MatListModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
