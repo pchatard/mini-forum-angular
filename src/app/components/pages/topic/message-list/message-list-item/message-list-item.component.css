@@ -1,0 +1,11 @@
+.messageStyle {
+    background-color: #F7FCFF;
+    padding: 10px;
+    margin: 20px;
+    border: solid 1px;
+    border-color: #00477C;
+}
+
+.messageStyle h3 {
+    color: #00477C;
+}

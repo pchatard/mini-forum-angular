@@ -1,4 +1,4 @@
-<div (mouseenter)="showDetails()" (mouseleave)="hideDetails()">
+<div class="topicListItemStyle" (mouseenter)="showDetails()" (mouseleave)="hideDetails()">
   <a [routerLink]="['topic', topic.id]" *ngIf="!showUpdateElements">{{topic.title}}
     <span *ngIf="showInformation">{{topic.author.username}} at {{topic.date}}</span>
   </a>
@@ -12,7 +12,7 @@
       </mat-error>
     </mat-form-field>
   </form>
-  <div>
+  <div *ngIf="showInformation">
     <button mat-raised-button color="primary" *ngIf="!showUpdateElements" (click)="updateTopic()">Update</button>
     <button mat-raised-button color="accent" *ngIf="showUpdateElements" (click)="saveChanges()">Save changes</button>
     <button mat-raised-button color="warn" *ngIf="!showUpdateElements" (click)="deleteTopic()">Delete</button>

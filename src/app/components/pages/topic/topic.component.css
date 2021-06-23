@@ -1,0 +1,14 @@
+.topicStyle {
+    padding: 1%;
+    margin: 1%;
+    border: solid 1px;
+    border-color: #053e69;
+}
+
+.topicStyle h1 {
+    color: #053e69;
+}
+
+.topicStyle h2 {
+    color: #053e69;
+}
