@@ -1,9 +1,9 @@
 <nav>
-    <ul>
-        <li *ngIf="isUserConnected"><a routerLink="">Home</a></li>
-        <li *ngIf="!isUserConnected"><a routerLink="login">Login</a></li>
-        <li *ngIf="!isUserConnected"><a routerLink="register">Register</a></li>
-        <li *ngIf="isUserConnected"><a routerLink="update-user">Update Profile</a></li>
-    </ul>
-    <button (click)="logout()" *ngIf="isUserConnected">Log out</button>
+  <ul>
+    <li *ngIf="isUserConnected"><a routerLink="">Home</a></li>
+    <li *ngIf="!isUserConnected"><a routerLink="login">Login</a></li>
+    <li *ngIf="!isUserConnected"><a routerLink="register">Register</a></li>
+    <li *ngIf="isUserConnected"><a routerLink="update-user">Update Profile</a></li>
+  </ul>
+  <button mat-stroked-button (click)="logout()" *ngIf="isUserConnected" color="warn">Log out</button>
 </nav>
