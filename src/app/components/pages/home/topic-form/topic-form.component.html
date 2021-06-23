@@ -4,7 +4,8 @@
     [class]="{'mat-form-field-invalid': topicForm.controls.title.dirty && topicForm.controls.title.invalid}">
     <mat-label>Title</mat-label>
     <input matInput placeholder="Title" formControlName="title">
-    <mat-error *ngIf="topicForm.controls.title.dirty && topicForm.controls.title.invalid">Title error message
+    <mat-error *ngIf="topicForm.controls.title.dirty && topicForm.controls.title.invalid">
+      {{getTitleErrors()}}
     </mat-error>
   </mat-form-field>
 
@@ -12,9 +13,11 @@
     [class]="{'mat-form-field-invalid': topicForm.controls.content.dirty && topicForm.controls.content.invalid}">
     <mat-label>Message</mat-label>
     <textarea matInput rows="8" cols="50" placeholder="Title" formControlName="content"></textarea>
-    <mat-error *ngIf="topicForm.controls.content.dirty && topicForm.controls.content.invalid">Message error message
+    <mat-error *ngIf="topicForm.controls.content.dirty && topicForm.controls.content.invalid">
+      {{getContentErrors()}}
     </mat-error>
   </mat-form-field>
 
   <button mat-raised-button color="primary" [disabled]="topicForm.invalid">Add a new topic</button>
+
 </form>

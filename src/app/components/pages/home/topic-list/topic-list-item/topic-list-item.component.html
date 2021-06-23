@@ -7,8 +7,8 @@
       [class]="{'mat-form-field-invalid': updateTopicForm.controls.title.dirty && updateTopicForm.controls.title.invalid}">
       <mat-label>New title</mat-label>
       <input matInput placeholder="New title" formControlName="title">
-      <mat-error *ngIf="updateTopicForm.controls.title.dirty && updateTopicForm.controls.title.invalid">Title error
-        message
+      <mat-error *ngIf="updateTopicForm.controls.title.dirty && updateTopicForm.controls.title.invalid">
+        {{getTitleErrors()}}
       </mat-error>
     </mat-form-field>
   </form>

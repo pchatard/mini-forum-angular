@@ -21,8 +21,21 @@ export class TopicListItemComponent implements OnInit {
 
   ngOnInit() {
     this.updateTopicForm = this.formBuilder.group({
-      title: [this.topic.title, [Validators.required]]
+      title: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(100)]]
     });
+  }
+
+  getTitleErrors(): string | void {
+    if (this.updateTopicForm.controls.title.hasError('required')) {
+      return 'This field is required';
+    }
+    if (this.updateTopicForm.controls.title.hasError('maxlength')) {
+      return 'You\'ve exceeded the limit of character. (at most 100 characters)'
+    }
+
+    if (this.updateTopicForm.controls.title.hasError('minlength')) {
+      return 'There is not enough characters. (at least 5 characters)'
+    }
   }
 
   onSubmit(): void {

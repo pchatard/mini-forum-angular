@@ -4,7 +4,8 @@
     [class]="{'mat-form-field-invalid': messageForm.controls.content.dirty && messageForm.controls.content.invalid}">
     <mat-label>Message</mat-label>
     <textarea matInput rows="8" cols="50" placeholder="Title" formControlName="content"></textarea>
-    <mat-error *ngIf="messageForm.controls.content.dirty && messageForm.controls.content.invalid">Content error message
+    <mat-error *ngIf="messageForm.controls.content.dirty && messageForm.controls.content.invalid">
+      {{getContentErrors()}}
     </mat-error>
   </mat-form-field>
 
