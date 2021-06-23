@@ -1,6 +1,8 @@
 <div class="topicListItemStyle" (mouseenter)="showDetails()" (mouseleave)="hideDetails()">
   <a [routerLink]="['topic', topic.id]" *ngIf="!showUpdateElements">{{topic.title}}
-    <span *ngIf="showInformation">{{topic.author.username}} at {{topic.date}}</span>
+    <span *ngIf="showInformation">{{topic.author.username}} at {{ topic.date | date }} 
+      
+          </span>
   </a>
   <form *ngIf="showUpdateElements" [formGroup]="updateTopicForm" (ngSubmit)="saveChanges()">
     <mat-form-field appearance="outline"
