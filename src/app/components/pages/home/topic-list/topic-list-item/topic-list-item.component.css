@@ -18,13 +18,19 @@
     text-decoration: none;
 }
 
-.topicListItemStyle span {
+.topicListItemStyle a span {
     color: #053e69;
     margin-left: 10px;
     margin-right: 15px;
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.topicListItemStyle form {
+    margin-right: 10px;
 }
 
 .topicListItemStyle button {
-    color: #053e69;
+    color: white;
     margin-left: 5px;
 }
