@@ -12,7 +12,7 @@
   <mat-form-field appearance="outline"
     [class]="{'mat-form-field-invalid': registerForm.controls.password.dirty && registerForm.controls.password.invalid}">
     <mat-label>Password</mat-label>
-    <input matInput type="password" placeholder="Username" formControlName="password">
+    <input matInput type="password" placeholder="Password" formControlName="password">
     <mat-error *ngIf="registerForm.controls.password.dirty && registerForm.controls.password.invalid">
       {{getPasswordErrors()}}
     </mat-error>
