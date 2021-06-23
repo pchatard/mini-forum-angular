@@ -2,10 +2,16 @@
     <div>
         <label for="username">Username</label>
         <input type="text" id="username" formControlName="username" placeholder="Username">
+        <div *ngIf="loginForm.dirty && loginForm.controls.username.invalid" style="color: red;">
+            {{getUsernameErrors()}}
+        </div>
     </div>
     <div>
         <label for="password">Password</label>
         <input type="password" id="password" formControlName="password" placeholder="Password">
+        <div *ngIf="loginForm.dirty && loginForm.controls.password.invalid" style="color: red;">
+            {{getPasswordErrors()}}
+        </div>
     </div>
     <div>
         <input type="checkbox" id="remember-me" formControlName="rememberMe">

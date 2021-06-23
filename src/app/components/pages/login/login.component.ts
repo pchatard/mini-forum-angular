@@ -16,9 +16,21 @@ export class LoginComponent implements OnInit {
     this.loginForm = this.formBuilder.group({
       username: ['', [Validators.required]],
       password: ['', [Validators.required]],
-      rememberMe: [false, [Validators.required]]
+      rememberMe: false
     });
   };
+
+  getUsernameErrors(): string | void {
+    if (this.loginForm.controls.username.hasError('required')) {
+      return 'This field is required';
+    }
+  }
+
+  getPasswordErrors(): string | void {
+    if (this.loginForm.controls.password.hasError('required')) {
+      return 'This field is required';
+    }
+  }
 
   onSubmit(): void {
     const { rememberMe, ...credentials } = this.loginForm.value;
