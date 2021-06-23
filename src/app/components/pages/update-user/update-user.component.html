@@ -41,8 +41,7 @@
     </mat-error>
   </mat-form-field>
 
-  <button type="submit" [disabled]="updateUserForm.invalid">Update my account</button>
-
+  <button mat-raised-button color="primary" type="submit" [disabled]="updateUserForm.invalid">Update my account</button>
 </form>
 
-<button (click)="deleteAccount()">Delete my account</button>
+<button mat-raised-button color="warn" (click)="deleteAccount()">Delete my account</button>

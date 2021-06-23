@@ -15,5 +15,6 @@
     <mat-error *ngIf="topicForm.controls.content.dirty && topicForm.controls.content.invalid">Message error message
     </mat-error>
   </mat-form-field>
-  <button [disabled]="topicForm.invalid">Add a new topic</button>
+
+  <button mat-raised-button color="primary" [disabled]="topicForm.invalid">Add a new topic</button>
 </form>
