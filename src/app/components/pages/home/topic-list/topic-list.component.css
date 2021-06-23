@@ -1,0 +1,18 @@
+.topic-list-container {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-form-field {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.topic-list-container div {
+  display: flex;
+  flex-direction: column;
+}
+
+.topic-list-container h1 {
+  text-align: center;
+}

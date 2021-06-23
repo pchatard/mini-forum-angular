@@ -1,5 +1,7 @@
 <form [formGroup]="topicForm" (ngSubmit)="onSubmit()">
 
+  <h1>Create a new topic</h1>
+
   <mat-form-field appearance="outline"
     [class]="{'mat-form-field-invalid': topicForm.controls.title.dirty && topicForm.controls.title.invalid}">
     <mat-label>Title</mat-label>
@@ -12,7 +14,7 @@
   <mat-form-field appearance="outline"
     [class]="{'mat-form-field-invalid': topicForm.controls.content.dirty && topicForm.controls.content.invalid}">
     <mat-label>Message</mat-label>
-    <textarea matInput rows="8" cols="50" placeholder="Title" formControlName="content"></textarea>
+    <textarea matInput rows="6" cols="50" placeholder="Message" formControlName="content"></textarea>
     <mat-error *ngIf="topicForm.controls.content.dirty && topicForm.controls.content.invalid">
       {{getContentErrors()}}
     </mat-error>
