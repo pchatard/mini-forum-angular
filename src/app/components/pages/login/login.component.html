@@ -4,7 +4,8 @@
     [class]="{'mat-form-field-invalid': loginForm.controls.username.dirty && loginForm.controls.username.invalid}">
     <mat-label>Username</mat-label>
     <input matInput placeholder="Username" formControlName="username">
-    <mat-error *ngIf="loginForm.controls.username.dirty && loginForm.controls.username.invalid">Username error message
+    <mat-error *ngIf="loginForm.controls.username.dirty && loginForm.controls.username.invalid">
+      {{getUsernameErrors()}}
     </mat-error>
   </mat-form-field>
 
@@ -12,7 +13,8 @@
     [class]="{'mat-form-field-invalid': loginForm.controls.password.dirty && loginForm.controls.password.invalid}">
     <mat-label>Password</mat-label>
     <input type="password" matInput placeholder="Password" formControlName="password">
-    <mat-error *ngIf="loginForm.controls.password.dirty && loginForm.controls.password.invalid">Password error message
+    <mat-error *ngIf="loginForm.controls.password.dirty && loginForm.controls.password.invalid">
+      {{getPasswordErrors()}}
     </mat-error>
   </mat-form-field>
 
