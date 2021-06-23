@@ -1,7 +1,12 @@
 <form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
-    <div>
-        <label for="message-content">Message</label>
-        <textarea type="text" id="message-content" formControlName="content" placeholder="Message"></textarea>
-    </div>
-    <button [disabled]="messageForm.invalid">Reply</button>
+
+  <mat-form-field appearance="outline"
+    [class]="{'mat-form-field-invalid': messageForm.controls.content.dirty && messageForm.controls.content.invalid}">
+    <mat-label>Message</mat-label>
+    <textarea matInput rows="8" cols="50" placeholder="Title" formControlName="content"></textarea>
+    <mat-error *ngIf="messageForm.controls.content.dirty && messageForm.controls.content.invalid">Content error message
+    </mat-error>
+  </mat-form-field>
+
+  <button [disabled]="messageForm.invalid">Reply</button>
 </form>

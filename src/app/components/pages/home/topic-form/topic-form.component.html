@@ -1,11 +1,19 @@
 <form [formGroup]="topicForm" (ngSubmit)="onSubmit()">
-    <div>
-        <label for="topic-title">Title</label>
-        <input type="text" id="topic-title" formControlName="title" placeholder="Title">
-    </div>
-    <div>
-        <label for="topic-msg">Message</label>
-        <textarea id="topic-msg" formControlName="content" placeholder="Message"></textarea>
-    </div>
-    <button [disabled]="topicForm.invalid">Add a new topic</button>
+
+  <mat-form-field appearance="outline"
+    [class]="{'mat-form-field-invalid': topicForm.controls.title.dirty && topicForm.controls.title.invalid}">
+    <mat-label>Title</mat-label>
+    <input matInput placeholder="Title" formControlName="title">
+    <mat-error *ngIf="topicForm.controls.title.dirty && topicForm.controls.title.invalid">Title error message
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline"
+    [class]="{'mat-form-field-invalid': topicForm.controls.content.dirty && topicForm.controls.content.invalid}">
+    <mat-label>Message</mat-label>
+    <textarea matInput rows="8" cols="50" placeholder="Title" formControlName="content"></textarea>
+    <mat-error *ngIf="topicForm.controls.content.dirty && topicForm.controls.content.invalid">Message error message
+    </mat-error>
+  </mat-form-field>
+  <button [disabled]="topicForm.invalid">Add a new topic</button>
 </form>

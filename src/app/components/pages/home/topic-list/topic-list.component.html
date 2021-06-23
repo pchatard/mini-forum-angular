@@ -1,7 +1,11 @@
 <div>
-    <input (input)="filterList($event)" type="text" placeholder="Filtrer par titre ou par auteur" />
 
-    <div>
-        <app-topic-list-item *ngFor="let topic of topics" [topic]="topic"></app-topic-list-item>
-    </div>
+  <mat-form-field appearance="outline">
+    <mat-label>Filtrer par titre ou par auteur</mat-label>
+    <input matInput placeholder="Filtrer par titre ou par auteur">
+  </mat-form-field>
+
+  <div>
+    <app-topic-list-item *ngFor="let topic of topics" [topic]="topic"></app-topic-list-item>
+  </div>
 </div>

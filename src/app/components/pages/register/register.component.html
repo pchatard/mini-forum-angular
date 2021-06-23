@@ -1,21 +1,31 @@
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-    <div>
-        <label for="username">Username</label>
-        <input type="text" id="username" formControlName="username" placeholder="Username">
-    </div>
-    <div>
-        <label for="password">Password</label>
-        <input type="password" id="password" formControlName="password" placeholder="Password">
-    </div>
-    <div>
-        <label for="passwordConfirmed">Password</label>
-        <input type="password" id="passwordConfirmed" formControlName="passwordConfirmed"
-            placeholder="Password confirmation">
-    </div>
-    <div>
-        <input type="checkbox" id="remember-me" formControlName="rememberMe">
-        <label for="remember-me">Remember me</label>
-    </div>
-    <button type="submit" [disabled]="registerForm.invalid">Login</button>
+
+  <mat-form-field appearance="outline"
+    [class]="{'mat-form-field-invalid': registerForm.controls.username.dirty && registerForm.controls.username.invalid}">
+    <mat-label>Username</mat-label>
+    <input matInput placeholder="Username" formControlName="username">
+    <mat-error *ngIf="registerForm.controls.username.dirty && registerForm.controls.username.invalid">Username error
+      message</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline"
+    [class]="{'mat-form-field-invalid': registerForm.controls.password.dirty && registerForm.controls.password.invalid}">
+    <mat-label>Password</mat-label>
+    <input matInput placeholder="Username" formControlName="password">
+    <mat-error *ngIf="registerForm.controls.password.dirty && registerForm.controls.password.invalid">Password error
+      message</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline"
+    [class]="{'mat-form-field-invalid': registerForm.controls.passwordConfirmed.dirty && registerForm.controls.passwordConfirmed.invalid}">
+    <mat-label>Confirm password</mat-label>
+    <input matInput placeholder="Confirm password" formControlName="passwordConfirmed">
+    <mat-error *ngIf="registerForm.controls.passwordConfirmed.dirty && registerForm.controls.passwordConfirmed.invalid">
+      Password Confirm error message</mat-error>
+  </mat-form-field>
+
+  <mat-slide-toggle formControlName="rememberMe">Remember me</mat-slide-toggle>
+
+  <button type="submit" [disabled]="registerForm.invalid">Login</button>
 
 </form>

@@ -1,22 +1,48 @@
 <form [formGroup]="updateUserForm" (ngSubmit)="onSubmit()">
-    <div>
-        <label for="username">Username</label>
-        <input type="text" id="username" formControlName="username" placeholder="Update username">
-    </div>
-    <div>
-        <label for="password">New password</label>
-        <input type="password" id="password" formControlName="password" placeholder="Update password">
-    </div>
-    <div>
-        <label for="password-confirm">Confirm new password</label>
-        <input type="password" id="password-confirm" formControlName="passwordConfirm"
-            placeholder="Confirm new password">
-    </div>
-    <div>
-        <label for="old-password">Old password</label>
-        <input type="password" id="old-password" formControlName="oldPassword" placeholder="Current password">
-    </div>
-    <button type="submit" [disabled]="updateUserForm.invalid">Update my account</button>
+
+  <mat-form-field appearance="outline"
+    [class]="{'mat-form-field-invalid': updateUserForm.controls.username.dirty && updateUserForm.controls.username.invalid}">
+    <mat-label>Username</mat-label>
+    <input matInput placeholder="Username" formControlName="username">
+    <mat-error *ngIf="updateUserForm.controls.username.dirty && updateUserForm.controls.username.invalid">Username error
+      message
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline"
+    [class]="{'mat-form-field-invalid': updateUserForm.controls.password.dirty && updateUserForm.controls.password.invalid}">
+    <mat-label>New password</mat-label>
+    <input matInput placeholder="Username" formControlName="password">
+    <mat-error *ngIf="updateUserForm.controls.password.dirty && updateUserForm.controls.password.invalid">New password
+      error
+      message
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline"
+    [class]="{'mat-form-field-invalid': updateUserForm.controls.passwordConfirm.dirty && updateUserForm.controls.passwordConfirm.invalid}">
+    <mat-label>Confirm new password</mat-label>
+    <input matInput placeholder="Username" formControlName="passwordConfirm">
+    <mat-error *ngIf="updateUserForm.controls.passwordConfirm.dirty && updateUserForm.controls.passwordConfirm.invalid">
+      Confirm new
+      password
+      error message
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline"
+    [class]="{'mat-form-field-invalid': updateUserForm.controls.oldPassword.dirty && updateUserForm.controls.oldPassword.invalid}">
+    <mat-label>Old password</mat-label>
+    <input matInput placeholder="Username" formControlName="oldPassword">
+    <mat-error *ngIf="updateUserForm.controls.oldPassword.dirty && updateUserForm.controls.oldPassword.invalid">Old
+      password
+      error
+      message
+    </mat-error>
+  </mat-form-field>
+
+  <button type="submit" [disabled]="updateUserForm.invalid">Update my account</button>
+
 </form>
 
 <button (click)="deleteAccount()">Delete my account</button>
