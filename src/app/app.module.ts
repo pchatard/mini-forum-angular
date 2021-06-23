@@ -17,6 +17,8 @@ import { MessageFormComponent } from './components/pages/topic/message-form/mess
 import { MessageListComponent } from './components/pages/topic/message-list/message-list.component';
 import { MessageListItemComponent } from './components/pages/topic/message-list/message-list-item/message-list-item.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

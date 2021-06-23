@@ -6,8 +6,8 @@
         <input type="text" placeholder="Title" formControlName="title" />
     </form>
     <div>
-        <button *ngIf="!showUpdateElements" (click)="updateTopic()">Update</button>
-        <button *ngIf="showUpdateElements" (click)="saveChanges()">Save changes</button>
-        <button *ngIf="!showUpdateElements" (click)="deleteTopic()">Delete</button>
+        <button mat-raised-button color="primary" *ngIf="!showUpdateElements" (click)="updateTopic()">Update</button>
+        <button mat-raised-button color="accent" *ngIf="showUpdateElements" (click)="saveChanges()">Save changes</button>
+        <button mat-raised-button color="warn" *ngIf="!showUpdateElements" (click)="deleteTopic()">Delete</button>
     </div>
 </div>

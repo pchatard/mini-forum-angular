@@ -7,5 +7,5 @@
         <label for="topic-msg">Message</label>
         <textarea id="topic-msg" formControlName="content" placeholder="Message"></textarea>
     </div>
-    <button [disabled]="topicForm.invalid">Add a new topic</button>
+    <button mat-raised-button color="primary" [disabled]="topicForm.invalid">Add a new topic</button>
 </form>

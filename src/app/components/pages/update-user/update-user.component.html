@@ -9,14 +9,13 @@
     </div>
     <div>
         <label for="password-confirm">Confirm new password</label>
-        <input type="password" id="password-confirm" formControlName="passwordConfirm"
-            placeholder="Confirm new password">
+        <input type="password" id="password-confirm" formControlName="passwordConfirm" placeholder="Confirm new password">
     </div>
     <div>
         <label for="old-password">Old password</label>
         <input type="password" id="old-password" formControlName="oldPassword" placeholder="Current password">
     </div>
-    <button type="submit" [disabled]="updateUserForm.invalid">Update my account</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="updateUserForm.invalid">Update my account</button>
 </form>
 
-<button (click)="deleteAccount()">Delete my account</button>
+<button mat-raised-button color="warn" (click)="deleteAccount()">Delete my account</button>

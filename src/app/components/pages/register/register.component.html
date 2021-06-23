@@ -9,13 +9,12 @@
     </div>
     <div>
         <label for="passwordConfirmed">Password</label>
-        <input type="password" id="passwordConfirmed" formControlName="passwordConfirmed"
-            placeholder="Password confirmation">
+        <input type="password" id="passwordConfirmed" formControlName="passwordConfirmed" placeholder="Password confirmation">
     </div>
     <div>
         <input type="checkbox" id="remember-me" formControlName="rememberMe">
         <label for="remember-me">Remember me</label>
     </div>
-    <button type="submit" [disabled]="registerForm.invalid">Login</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="registerForm.invalid">Login</button>
 
 </form>
